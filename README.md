@@ -16,6 +16,9 @@ It uses the mysql employee example database.
 
 ## How to run this
 
+### Machines
+You need a linux box, or virtual linux box to run this, plus your development machine.
+
 ### Mysql setup
 
 #### The easy way
