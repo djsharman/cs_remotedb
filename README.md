@@ -5,7 +5,9 @@
 
 It's a proof of concept C# application that connects to a remote MySQL database over a port forwarded SSH connection.
 
-It uses the mysql employee example database.
+It uses the mysql employee example database running in a docker instance (you can also manually set this up if you wish, but docker is generally faster and easier).
+
+The example can read data from the remote DB and send back table updates to the MySQL server.
 
 ## How does it work?
 - It starts up and makes an ssh connection with a port forward to the DB.
