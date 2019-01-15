@@ -26,9 +26,11 @@ namespace CSAppWithSshDB.comms.db
             // fetch connection params string
             MysqlConnectionParams MysqlConnectionParams = new MysqlConnectionParams();
             String connParams = MysqlConnectionParams.getConnectionString();
-
+            Console.WriteLine("Connecting to Mysql Server");
             // make connection
             this.MysqlConn = new MySqlConnection(connParams);
+
+            Console.WriteLine("Mysql Server connection established");
         }
 
         public static MysqlServer Instance

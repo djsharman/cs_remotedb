@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CSAppWithSshDB.comms.ssh;
 
 namespace CSAppWithSshDB
 {
@@ -16,7 +17,23 @@ namespace CSAppWithSshDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CSAppWithSshDB.views.DataGridView());
+
+            try
+            {
+                // make an ssh connection
+                SshConn sshConn = new SshConn();
+                sshConn.connect();
+
+                //System.Threading.Thread.Sleep(1000);
+
+                // run the main dialog which connects to the mysql server
+                Application.Run(new CSAppWithSshDB.views.DataGridView());
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            
         }
     }
 }

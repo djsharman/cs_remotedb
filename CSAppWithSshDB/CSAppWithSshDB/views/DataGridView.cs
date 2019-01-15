@@ -43,13 +43,18 @@ namespace CSAppWithSshDB.views
                 // get mysql connection
                 MySqlConnection MysqlConn = MysqlServer.Instance.MysqlConn;
 
+                Console.WriteLine("Starting mysql adapter");
                 // init adapter
                 adapter = new MySqlDataAdapter("SELECT * from employees.employees LIMIT 0,100", MysqlConn);
                 adapter.RowUpdated += new MySqlRowUpdatedEventHandler(OnRowUpdating);
 
+                Console.WriteLine("Preparing dataset");
+
                 // grab employees data and attach it to the grid view
                 dataSet = new DataSet();
                 adapter.Fill(dataSet, "employees");
+
+                Console.WriteLine("Setting gridview datasource");
                 dataGridView1.DataSource = dataSet.Tables["employees"];
 
             } catch (Exception ex)

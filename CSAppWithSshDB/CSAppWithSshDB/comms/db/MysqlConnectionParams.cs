@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSAppWithSshDB.comms;
 
 namespace CSAppWithSshDB.comms.db
 {
-    class MysqlConnectionParams
+    class MysqlConnectionParams : NetCredBase
     {
-        private String hostName = "192.168.0.50";
-        private int port = 53306;
-        private String username = "root";
-        private String password = "college";
+        public MysqlConnectionParams()
+        {
+            //hostName = "192.168.0.50";
+            hostName = "127.0.0.1";
+            port = 53306;
+            username = "root";
+            password = "college";
+        }
 
         public String getConnectionString()
         {
